@@ -1,6 +1,7 @@
 using ApiCatalogo.DTOs.Mappings;
 using ApiCatalogo.Extensions;
 using ApiCatalogo.Filters;
+using ApiCatalogo.GraphQL;
 using ApiCatalogo.Repository;
 using APICatalogo.Context;
 using APICatalogo.Models;
@@ -205,6 +206,8 @@ namespace APICatalogo
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiCatalogo");
             });
+
+            app.UseMiddleware<TesteGraphQLMiddleware>();
 
             //app.UseCors(opt => opt.WithOrigins("https://www.apirequest.io/")
             //                      .WithMethods("GET"));
